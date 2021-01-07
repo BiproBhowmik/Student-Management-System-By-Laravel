@@ -92,3 +92,8 @@
 // console.log("Hello world!");
 
 // console.log(corseId);
+
+function myFunction() {
+  alert("Hello");
+  
+}

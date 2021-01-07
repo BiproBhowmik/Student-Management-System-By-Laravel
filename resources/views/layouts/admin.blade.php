@@ -75,6 +75,45 @@
 </div>
 <!-- ./wrapper -->
 
+
+
+{{-- Dependent branch selector by ajax --}}
+
+<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+        
+        <script>
+            $(document).ready(function () {
+                $('#for_branch').on('change', function () {
+                    let id = $(this).val();
+                    $('#branch_dropdown').empty();
+                    $('#branch_dropdown').append(`<option value="0" disabled selected>Processing...</option>`);
+                    $.ajax({
+                        type: 'GET',
+                        url: 'GetbranchAgainstCourseEdit/' + id,
+                        success: function (response) {
+                            var response = JSON.parse(response);
+                            console.log(response);   
+                            $('#branch_dropdown').empty();
+                            $('#branch_dropdown').append(`<option value="0" disabled selected>Chose Branch</option>`);
+                            response.forEach(element => {
+                                $('#branch_dropdown').append(`<option value="${element['brId']}">${element['brName']}</option>`);
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+
+{{-- Dependent branch selector by ajax --}}
+
+
+
+
+
+
+
+
+
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

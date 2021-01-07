@@ -8,10 +8,15 @@ use App\Models\Course;
 use App\Models\Branch;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use DB;
 
 class StudentManageController extends Controller
 {
-    //
+    // Dependent branch selector by ajax
+    public function GetbranchAgainstCourseEdit($id){
+        echo json_encode(DB::table('branches')->where('corId', $id)->get());// Dependent branch selector by ajax
+    }
+    // Dependent branch selector by ajax
 
 	public function create()
 	{
@@ -99,7 +104,7 @@ class StudentManageController extends Controller
 			'corId' => 'required',
 			'brId' => 'required',
 			'phone' => 'required',
-			'email' => 'required|max:30|string',
+			'email' => 'unique:email|required|max:30|string',
 			'dob' => 'required|max:30|string',
 			'gender' => 'required',
     ]);

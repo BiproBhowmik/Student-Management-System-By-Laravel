@@ -42,10 +42,9 @@ Registrassion :: Student Management
 					<div class="input-group-prepend">
 						<label class="input-group-text" for="inputGroupSelect01">Courses</label>
 					</div>
-					<select name="corId" class="custom-select" id="inputGroupSelect01">
-						<option selected>Choose...</option>
+					<select id="for_branch" name="corId" class="custom-select" {{-- id="inputGroupSelect01" --}}>
+						<option disabled selected>Choose Course Name...</option>
 						@foreach ($courses as $course)
-
 						<option id="courseId" value="{{ $course->corId }}">{{ "(". $course->corSortName.") ".$course->corFullName }}
 						</option>
 						@endforeach
@@ -59,12 +58,12 @@ Registrassion :: Student Management
 					<div class="input-group-prepend">
 						<label class="input-group-text" for="inputGroupSelect01">Branches</label>
 					</div>
-					<select name="brId" class="custom-select" id="inputGroupSelect01">
-						<option selected>Choose...</option>
+					<select name="brId" class="custom-select" id="branch_dropdown" {{-- id="inputGroupSelect01" --}}>
+						{{-- <option selected>Choose...</option>
 						@foreach ($branches as $branch)
 
 						<option value="{{ $branch->brId }}">{{ $branch->brName }}</option>
-						@endforeach
+						@endforeach --}}
 					</select>
 				</div>
 				{{-- <input name="branch" type="text" class="form-control" placeholder="Branch"> --}}

@@ -19,6 +19,9 @@ use App\Http\Controllers\BranchController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+// Dependent branch selector by ajax
+Route::get('GetbranchAgainstCourseEdit/{id}', [StudentManageController::class, 'GetbranchAgainstCourseEdit'])->name('GetbranchAgainstCourseEdit');
+// Dependent branch selector by ajax
 Route::get('delreg/{id}', [StudentManageController::class, 'delreg'])->name('delreg');
 Route::get('editreg/{id}', [StudentManageController::class, 'editreg'])->name('editreg');
 
@@ -41,8 +44,6 @@ Route::get('/delBranch/{id}', [BranchController::class, 'delBranch'])->name('del
 Route::get('/editBranch/{id}', [BranchController::class, 'editBranch'])->name('editBranch');
 Route::post('/uppBr', [BranchController::class, 'uppBr'])->name('uppBr');
 Route::post('/addBr', [BranchController::class, 'addBr'])->name('addBr');
-
-
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return view('dashboard');
