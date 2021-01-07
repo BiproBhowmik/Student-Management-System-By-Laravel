@@ -46,7 +46,7 @@ Registrassion :: Student Management
 						<option selected>Choose...</option>
 						@foreach ($courses as $course)
 
-						<option value="{{ $course->corId }}">{{ "(". $course->corSortName.") ".$course->corFullName }}
+						<option id="courseId" value="{{ $course->corId }}">{{ "(". $course->corSortName.") ".$course->corFullName }}
 						</option>
 						@endforeach
 					</select>
